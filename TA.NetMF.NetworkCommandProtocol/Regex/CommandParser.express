@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<RegexProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Regex>&lt;(?&lt;DeviceAddress&gt;\w\d),(?&lt;TransactionId&gt;\d+),(?&lt;Verb&gt;[A-Za-z]\w+)(?&lt;Payload&gt;=((?&lt;Position&gt;\d+)|(?&lt;Data&gt;.+)))?&gt;</Regex>
+  <Input>&lt;R2,99,Reset&gt;
+&lt;F4,0,MoveTo=1000&gt;
+&lt;F1,123,Nickname=Albert&gt;
+&lt;garbage&lt;R2,99,Reset&gt;
+&lt;R2,99,Reset
+
+
+</Input>
+  <Options>IgnoreCase Multiline IgnorePatternWhitespace</Options>
+  <FileName>C:\Users\Tim\Projects\TA.MonktonFocuser\TA.MonktonFocuser.Firmware\Regex\CommandParser.express</FileName>
+  <ReplaceString />
+  <InputFilename>C:\Users\Tim\Projects\TA.MonktonFocuser\TA.MonktonFocuser.Firmware\Regex\Regex test data.txt</InputFilename>
+  <UpdateEventsEnabled>true</UpdateEventsEnabled>
+</RegexProject>

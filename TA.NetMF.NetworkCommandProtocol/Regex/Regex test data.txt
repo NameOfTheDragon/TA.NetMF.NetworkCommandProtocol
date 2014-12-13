@@ -1,0 +1,5 @@
+﻿<R2,99,Reset>
+<F4,0,MoveTo=1000>
+<F1,123,Nickname=Albert>
+<garbage<R2,99,Reset>
+<R2,99,Reset

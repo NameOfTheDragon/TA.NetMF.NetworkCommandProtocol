@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TA.NetMF.NetworkCommandProtocol.NetworkServer.Server">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAgAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>NetworkServer\Server.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TA.NetMF.NetworkCommandProtocol.NetworkServer.ConnectionHandler">
+    <Position X="0.5" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>IgAAABAAAAAACAAAAAABAAAAEAAAABAAACAABAAAAAA=</HashCode>
+      <FileName>NetworkServer\ConnectionHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TA.NetMF.NetworkCommandProtocol.CommandParser">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>CommandParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TA.NetMF.NetworkCommandProtocol.ResponseBuilder">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAAAACAgAA=</HashCode>
+      <FileName>ResponseBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TA.NetMF.NetworkCommandProtocol.CommandDispatcher">
+    <Position X="9.25" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>gAgAAgAAAAAAAAAAAAAAQAAAAAAAAAAQAAEAAAAAAIA=</HashCode>
+      <FileName>CommandDispatcher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="TA.NetMF.NetworkCommandProtocol.Command">
+    <Position X="3.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAEgAAAAAgAGAQAAAAAAIAAAAAEAAAAAAQAAA=</HashCode>
+      <FileName>Command.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TA.NetMF.NetworkCommandProtocol.Response">
+    <Position X="6.25" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAhAAACAQAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Response.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="TA.NetMF.NetworkCommandProtocol.CommandTargets.ICommandTarget">
+    <Position X="9.5" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>CommandTargets\ICommandTarget.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TA.NetMF.NetworkCommandProtocol.CommandProcessors.ICommandProcessor">
+    <Position X="9.5" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CommandProcessors\ICommandProcessor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
