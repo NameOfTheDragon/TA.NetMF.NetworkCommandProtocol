@@ -1,14 +1,16 @@
-# Netduino Network Command Protocol and Server #
+# General Purpose Network Command Protocol and Server for .Net Micro Framework #
 
 This project implements a general purpose network-based command/response protocol which can serve as the front end for a variety of device control applications. The primary use-case we had in mind when designing this was for astronomical instrumentation that can be controlled by an [ASCOM](http://ascom-standards.org "Astronomy Common Object Model") driver.
 
 The code is structured using object oriented design principles, so that the command protocol can be very easily re-purposed for different projects. The protocol is designed to be human-readable as well as machine-readable.
 
-### Some features and aims of this project ###
+### What's it For? ###
 
-Motors are objects, too! There is a lot of micro-framework code out there that looks like it was written in Fortran in the 1960s. We have tried to take a more object oriented approach to this library.
+Implementing a command protocol for a network device is something that a lot of developers do from scratch. We thought it was time for a ready-made solution that can serve as the basis for such a development. The protocol format is defined and implemented, but it is done in such a way that it is quite flexible and easy to extend and re-purpose for whatever application is being developed.
 
-Some features and aims of this library:
+There is a lot of micro-framework code out there that looks like it was written in Fortran in the 1960s. We have tried to take a more object oriented approach to this library.
+
+### Some Features and Aims of This Project ###
 
 - **Object oriented**: we strive to give each class a single responsibility and basically follow the SOLID best practices.
 - **Clean code**: we strive to maintain 'clean code' that is well documented, readable by human beings and easy to maintain.
