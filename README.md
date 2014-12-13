@@ -37,7 +37,7 @@ The project is configured for Netduino Plus 2 hardware and .net MicroFramework 4
 
 ### Contribution guidelines ###
 
-We invite and encourage pull requests. Each request will undergo code review before being merged. We use [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/ "a successful Git branching model"), which reserves the *master* branch for published releases. Therefore, please push your code to `develop` or a feature branch under `feature/`. [Atlassian SourceTree](http://www.sourcetreeapp.com/ "Free Git and Mercurial client for Windows and Mac") has built-in support for GitFlow and makes it all very simple. 
+We invite and encourage pull requests. Each request will undergo code review and must build successfully on our build server before being merged. We use [GitFlow](http://nvie.com/posts/a-successful-git-branching-model/ "a successful Git branching model"), which reserves the *master* branch for published releases. Therefore, please push your code to `develop` or a feature branch under `feature/`. [Atlassian SourceTree](http://www.sourcetreeapp.com/ "Free Git and Mercurial client for Windows and Mac") has built-in support for GitFlow and makes it all very simple. 
 
 When you push code or submit a pull request to this repository, you are agreeing that your code is irrevocably donated to the project under the project's [MIT License](http://opensource.org/licenses/MIT "The MIT License"). Note that the license allows for commercial use of the code. Please don't submit code if you are not comfortable with that.
 
