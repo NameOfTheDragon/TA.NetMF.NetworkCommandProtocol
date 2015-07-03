@@ -28,7 +28,7 @@ These examples address a device at address `T1` (temperature probe 1). They have
 	Key-Value pair collections are unbounded, so the device can return as much data as needed. They are simple to parse and address in the client application.
 - **Community involvement welcome**: We would love to get some pull requests! Please help us improve the design.
 - **Orthogonal**: All commands and responses have the exact same format, which greatly simplifies parsing and creating commmand and response packets.
-- User Friendly: Error message can include as much information as desired, so that the user (or application) can figure out what actually went wrong.
+- **User Friendly**: Error message can include as much information as desired, so that the user (or application) can figure out what actually went wrong.
 - **Permissive license**: All code in this repository is covered by the [MIT license](http://opensource.org/licenses/MIT "The MIT License"), which is a permissive license. In summary, anyone can do anything at all with this code with proper attribution and with no warranty. Commercial use is specifically allowed.
 
 ### How do I get set up? ###
@@ -137,7 +137,7 @@ To bring all this together, something in your application needs to create the co
             }
         }
 
-We adopted the convention od having a method called `ConfigureCopmmandTargets()` that is called from the `Main()` method or similar.
+We adopted the convention of having a method called `ConfigureCopmmandTargets()` that is called from the `Main()` method or similar.
 
 We then call `Server.ListenForConnections()` which should never return unless an error has occurred. This then effectively becomes the main application loop. As in our example code above, it may be sensible to put error recovery around this call, or to simply reboot and let the application restart.
 
