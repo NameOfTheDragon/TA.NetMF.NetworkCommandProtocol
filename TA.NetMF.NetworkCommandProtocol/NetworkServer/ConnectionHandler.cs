@@ -11,6 +11,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using Microsoft.SPOT;
+using TA.NetMF.NetworkCommandProtocol.Diagnostics;
 
 namespace TA.NetMF.NetworkCommandProtocol.NetworkServer
     {
@@ -27,33 +28,27 @@ namespace TA.NetMF.NetworkCommandProtocol.NetworkServer
             client = connection.RemoteEndPoint as IPEndPoint;
             }
 
-        internal void StartConnectionThread()
+        internal void HandleClientRequests()
             {
-            var thread = CreateConnectionThread();
-            thread.Start();
-            /*
-             * NOTE: At this point we should be able to return and listen for another connection,
-             * however the Netduino sockets implementation doesn't seem to be very happy to do that
-             * (perhaps there is insufficient memory to handle multiple connections). We therefore
-             * prevent another connection by waiting for the connection handler thread to complete.
-             */
-            thread.Join(); // Prevent additional connections by blocking on the connection handler thread.
+            var workerThread = CreateConnectionThread();
+            workerThread.Start();
+            // To prevent multiple simultaneous client connections, uncomment the following line:
+            // workerThread.Join();
             }
 
         Thread CreateConnectionThread()
             {
-            // ToDo - enforce maximum connections limit here.
             ThreadStart connectionHandler = HandleRequestsThread;
             return new Thread(connectionHandler);
             }
 
         /// <summary>
-        ///   Handles requests from the connected client until either the client closes the connection
-        ///   or a Socket related error occurs.
+        ///     Handles requests from the connected client until either the client closes the connection
+        ///     or a Socket related error occurs.
         /// </summary>
         void HandleRequestsThread()
             {
-            Debug.Print("Accepting requests from " + client);
+            Dbg.Trace("Accepting requests from " + client, Source.ConnectionHandler);
             while (!SocketClosed())
                 {
                 try
@@ -63,27 +58,29 @@ namespace TA.NetMF.NetworkCommandProtocol.NetworkServer
                 catch (SocketException ex)
                     {
                     // Any socket related problems result in the thread terminating and the socket being closed.
-                    Debug.Print("Closing connection from " + client + " due to a socket exception");
+                    Dbg.Trace("Closing connection from " + client + " due to a socket exception", Source.ConnectionHandler);
                     if (connection != null)
                         connection.Close(); // This should never fail.
                     return;
                     }
                 catch (Exception ex)
                     {
-                    // Last ditch exception handler. Any exception at all from a request results in the request being ignored.
+                    // Last ditch exception handler. 
+                    // Any non-socket exception from a request results in the request being ignored.
+                    Dbg.Trace("Exception handling client request: "+ex.Message, Source.ConnectionHandler);
                     }
                 }
             }
 
         /// <summary>
-        ///   Detects whether the socket has been closed, reset or terminated by the client.
+        ///     Detects whether the socket has been closed, reset or terminated by the client.
         /// </summary>
         /// <returns><c>true</c> if the socket has been closed, reset or terminated, <c>false</c> otherwise.</returns>
         /// <remarks>
-        ///   see: How to tell if a socket is closed http://stackoverflow.com/a/2556369/98516
-        ///   Socket.Poll() returns true if data is available for reading or if the connection has been closed, reset, or
-        ///   terminated.
-        ///   Therefore if it returns true and there is no data available, it must have been closed, reset or terminated.
+        ///     see: How to tell if a socket is closed http://stackoverflow.com/a/2556369/98516
+        ///     Socket.Poll() returns true if data is available for reading or if the connection has been closed, reset, or
+        ///     terminated.
+        ///     Therefore if it returns true and there is no data available, it must have been closed, reset or terminated.
         /// </remarks>
         bool SocketClosed()
             {
@@ -103,14 +100,14 @@ namespace TA.NetMF.NetworkCommandProtocol.NetworkServer
             var bytesReceived = connection.Receive(receiveBuffer);
             if (bytesReceived == 0)
                 {
-                Debug.Print("Received 0 bytes from " + client + ", assuming the socket is broken.");
+                Dbg.Trace("Received 0 bytes from " + client + ", assuming the socket is broken.", Source.ConnectionHandler);
                 throw new SocketException(SocketError.ConnectionAborted);
                 }
             var requestString = receiveBuffer.GetString();
-            Debug.Print("Received [" + requestString.ExpandASCII() + "] from " + client);
+            Dbg.Trace("Received [" + requestString.ExpandASCII() + "] from " + client, Source.ConnectionHandler);
             if (requestString.Length < 6)
                 {
-                Debug.Print("Request is too short - ignoring");
+                Dbg.Trace("Request is too short to be valid - ignoring", Source.ConnectionHandler);
                 return; // Too short to be valid, ignore it.
                 }
             Command command;

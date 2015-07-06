@@ -26,6 +26,7 @@ namespace TA.NetMF.NetworkCommandProtocol
          */
 
         const string CommandRegex = @"<(\w\d),(\d+),([A-Za-z]\w+)(=((\d+)|(.+)))?>";
+        static readonly Regex Parser = new Regex(CommandRegex);
 
         internal static Command ParseCommand(string text)
             {
@@ -62,7 +63,5 @@ namespace TA.NetMF.NetworkCommandProtocol
             var command = new Command(deviceAddress, transaction, verb, data, position, source);
             return command;
             }
-
-        static readonly Regex Parser = new Regex(CommandRegex);
         }
     }

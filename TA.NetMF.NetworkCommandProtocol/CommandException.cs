@@ -51,6 +51,7 @@ namespace TA.NetMF.NetworkCommandProtocol
     ///   Class InvalidCommandVerbException. This class cannot be inherited.
     ///   An exception used when the device rejects the command verb.
     /// </summary>
+    [Serializable]
     internal sealed class InvalidCommandVerbException : CommandException
         {
         /// <summary>
@@ -65,6 +66,7 @@ namespace TA.NetMF.NetworkCommandProtocol
     ///   Class InvalidAddressException. This class cannot be inherited.
     ///   An exception thrown when the device address is invalid (no device recognizes the address).
     /// </summary>
+    [Serializable]
     internal sealed class InvalidAddressException : CommandException
         {
         /// <summary>
