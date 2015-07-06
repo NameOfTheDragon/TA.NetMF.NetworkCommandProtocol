@@ -5,6 +5,8 @@
 // File: Command.cs  Created: 2014-06-06@07:38
 // Last modified: 2014-12-13@22:32 by Tim
 
+using System.Text;
+
 namespace TA.NetMF.NetworkCommandProtocol
     {
     /// <summary>
@@ -34,5 +36,20 @@ namespace TA.NetMF.NetworkCommandProtocol
         public int Position { get; private set; }
         public string Payload { get; private set; }
         public bool HasPayload { get { return (Payload != null && Payload.Length > 0); } }
+        
+
+        public override string ToString()
+            {
+            var builder = new StringBuilder();
+            builder.Append("DeviceId=");
+            builder.Append(DeviceId);
+            builder.Append(" TransactionId=");
+            builder.Append(TransactionId);
+            builder.Append(" Verb=");
+            builder.Append(Verb);
+            builder.Append(" Payload=");
+            builder.Append(Payload);
+            return builder.ToString();
+            }
         }
     }

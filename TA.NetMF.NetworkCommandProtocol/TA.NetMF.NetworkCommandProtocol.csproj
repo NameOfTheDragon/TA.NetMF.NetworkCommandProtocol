@@ -48,6 +48,8 @@
     <Compile Include="CommandProcessors\ICommandProcessor.cs" />
     <Compile Include="CommandTargets\ICommandTarget.cs" />
     <Compile Include="CommandTargets\TemperatureProbe.cs" />
+    <Compile Include="Diagnostics\Dbg.cs" />
+    <Compile Include="Diagnostics\Source.cs" />
     <Compile Include="NetworkServer\ConnectionHandler.cs" />
     <Compile Include="NetworkServer\Server.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.SPOT.Native" />
+    <Reference Include="Microsoft.SPOT.Net" />
     <Reference Include="SecretLabs.NETMF.Hardware" />
     <Reference Include="SecretLabs.NETMF.Hardware.Netduino" />
     <Reference Include="System" />

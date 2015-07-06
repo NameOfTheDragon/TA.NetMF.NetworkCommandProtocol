@@ -10,6 +10,7 @@ using System.Collections;
 using System.Text;
 using TA.NetMF.NetworkCommandProtocol.CommandProcessors;
 using TA.NetMF.NetworkCommandProtocol.CommandTargets;
+using TA.NetMF.NetworkCommandProtocol.Diagnostics;
 
 namespace TA.NetMF.NetworkCommandProtocol
     {
@@ -30,6 +31,7 @@ namespace TA.NetMF.NetworkCommandProtocol
         /// <returns>Response.</returns>
         internal static Response Dispatch(Command command)
             {
+            Dbg.Trace("Dispatching command: " + command, Source.Dispatcher);
             try
                 {
                 var processor = GetCommandProcessorForCommand(command);
